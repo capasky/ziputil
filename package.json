@@ -1,0 +1,31 @@
+{
+  "name": "ziputil",
+  "version": "0.0.1",
+  "description": "Utils to process zip file",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/capasky/ziputil.git"
+  },
+  "keywords": [
+    "zip"
+  ],
+  "author": "capasky <capasky@live.com>",
+  "license": "MIT",
+  "dependencies": {
+    "adm-zip": "^0.4.7",
+    "archiver": "^1.0.1",
+    "bluebird": "^3.4.1",
+    "debug": "^2.2.0",
+    "fs-extra": "^0.30.0",
+    "moment": "^2.14.1",
+    "request": "^2.74.0"
+  },
+  "devDependencies": {
+    "expect.js": "^0.3.1",
+    "mocha": "^3.0.2"
+  }
+}
