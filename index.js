@@ -1,8 +1,3 @@
-/**
- * Utils - ZIP
- * zip/unzip 工具
- * @author capasky(hzyangzhouzhi@corp.netease.com)
- */
 
 'use strict';
 
@@ -17,15 +12,21 @@ const archiver = require('archiver');
 const AdmZip = require('adm-zip');
 const debug = require('debug')('util-Zip');
 
+/**
+ * zip/unzip utils
+ * @class ZipUtil
+ * @author capasky(hzyangzhouzhi@corp.netease.com)
+ */
 class ZipUtil {
     /**
-     * 获取远程文件并压缩为压缩包
-     * 远程文件会下载到本地临时目录，在压缩包生成后会删除
-     * @param   {Array<String>}  urls    远程url数组
-     * @param   {String}    destDir 压缩包存储目标路径
-     * @param   {Object}    options 配置参数
-     * @param   {Object}    options.cwd 工作目录路径，默认 process.cwd()
-     * @param   {Object}    options.tmp 远程文件存储临时目录，默认 /tmp
+     * Get remote files and then compress them into one zip package
+     * All remote files will be downloaded to the local tmp directory 
+     * and deleted after generating the zip package successfully
+     * @param   {Array<String>}  urls    a string array for all remote files' url
+     * @param   {String}    destDir the path for saving zip package
+     * @param   {Object}    options options
+     * @param   {Object}    options.cwd cwd, default to process.cwd()
+     * @param   {Object}    options.tmp temporary directory to save remote files, default to /tmp
      */
     static zipRemote(items, destDir, options) {
         options = options || {};
@@ -82,10 +83,12 @@ class ZipUtil {
         })
     };
     /**
-     * 从ZIP包中解压出单个文件，文件会解压到临时目录，并且会自动删除
-     * @param   {String}    zipFile   zip文件路径
-     * @param   {String}    targetFile  要解压的压缩包中的目标文件，路径相对于压缩包根，如 res/logo.png
-     * @returns {Promise<String>}   解压成功时以 解压的文件的路径 resolve
+     * Extract a file from zip package to tmp directory and 
+     * this file will be deleted in the finally stage of the returned Promise 
+     * @param   {String}    zipFile   path of zip package
+     * @param   {String}    targetFile  target file path in the zip package, relative to the root of 
+     *                                  the  package, such as res/logo.png
+     * @returns {Promise<String>}   Promise resolved with the extracted file path
      */
     static extractFile(zipFile, targetFile) {
         let ext = path.extname(targetFile);
