@@ -1,4 +1,4 @@
-# ziputil
+# ziputil [![Build Status](https://travis-ci.org/capasky/ziputil.svg?branch=develop)](https://travis-ci.org/capasky/ziputil)
 Utils to process zip file
 
 ## install
