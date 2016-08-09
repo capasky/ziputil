@@ -87,9 +87,13 @@ class ZipUtil {
      * @param   {String}    zipFile   path of zip package
      * @param   {String}    targetFile  target file path in the zip package, relative to the root of 
      *                                  the  package, such as res/logo.png
+     * @param   {Object}    options.autoRemove  whether to remove the temporary directory, default to true
      * @returns {Promise<String>}   Promise resolved with the extracted file path
      */
-    static extractFile(zipFile, targetFile) {
+    static extractFile(zipFile, targetFile, options) {
+        options = Object.assign({
+            autoRemove: true
+        }, options);
         let ext = path.extname(targetFile);
         let basename = path.basename(targetFile, ext);
         let output = path.join(os.tmpDir(),
@@ -102,8 +106,10 @@ class ZipUtil {
             resolve(outputFile);
         })
         .finally(() => {
-            debug(`remove output ${output}`)
-            fs.remove(output, debug);
+            if (options.autoRemove) {
+                debug(`remove output ${output}`)
+                fs.remove(output, debug);
+            }
         });
     }
 };
