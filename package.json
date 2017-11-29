@@ -4,7 +4,9 @@
   "description": "Utils to process zip file",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test/index.js"
+    "test": "mocha test/index.js",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -22,10 +24,12 @@
     "debug": "^2.2.0",
     "fs-extra": "^0.30.0",
     "moment": "^2.14.1",
-    "request": "^2.74.0"
+    "request": "^2.74.0",
+    "snyk": "^1.52.0"
   },
   "devDependencies": {
     "expect.js": "^0.3.1",
     "mocha": "^3.0.2"
-  }
+  },
+  "snyk": true
 }
