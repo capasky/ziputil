@@ -16,7 +16,7 @@
   "author": "capasky <capasky@live.com>",
   "license": "MIT",
   "dependencies": {
-    "adm-zip": "^0.4.7",
+    "adm-zip": "^0.5.2",
     "archiver": "^1.0.1",
     "bluebird": "^3.4.1",
     "debug": "^2.2.0",
