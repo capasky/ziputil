@@ -17,10 +17,10 @@
   "license": "MIT",
   "dependencies": {
     "adm-zip": "^0.4.7",
-    "archiver": "^1.0.1",
+    "archiver": "^5.0.0",
     "bluebird": "^3.4.1",
     "debug": "^2.2.0",
-    "fs-extra": "^0.30.0",
+    "fs-extra": "^1.0.0",
     "moment": "^2.14.1",
     "request": "^2.74.0"
   },
